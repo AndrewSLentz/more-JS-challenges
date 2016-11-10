@@ -37,14 +37,17 @@ console.assert(dontTellNobody.squeal() === mySecret)
 
 // 5. Create a constructor called `Key`. Create another constructor called `Safe`. Make the Safe constructor take 2 arguments. The first argument can be any piece if data to keep safe. This must be stored using a private variable like you did with KeepSecret. The 2nd param to the `Safe` constructor needs to be an instance of `Key` you need to store it privately as well. Add a function to the Safe prototype called `unlock` that accepts a key. If the key matches the key that was used to create the Safe; then return the secret data.
 function Key(){
+
 }
 
-function Safe(protectedData, key){
-  this.unlock = function (keyInstance) {
-    if (keyInstance === key) {
-      return protectedData;
-    };
-  };
+function Safe(protectedData, keyInstance){
+  this.protectedData = protectedData;
+  this.keyInstance = keyInstance
+}
+Safe.prototype.unlock = function(key) {
+  if (key === this.keyInstance) {
+    return this.protectedData
+  }
 }
 // assertions
 var sensitive = "shhhhh!"
