@@ -13,9 +13,9 @@ console.assert(new Dog().says === "life is ruff")
 
 // 3. Create a constructor function called `Cat` that has a method on it's prototype called `growl` that returns the string `meow`; create an instance of this called `cat`
 function Cat() {
-  this.growl = function() {
-    return "meow";
-  }
+}
+Cat.prototype.growl = function() {
+  return 'meow';
 }
 
 var cat = new Cat;
