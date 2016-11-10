@@ -25,9 +25,10 @@ console.assert(cat.growl() === "meow")
 
 // 4. Create a constructor called `KeepSecret`. The constructor function itself should accept a parameter called `secret` it should store this in a private variable (use a closure). Add a method to the prototype that is called `squeal` that returns the secret string.
 function KeepSecret(secret) {
-  this.squeal = function() {
-    return secret;
-  };
+  this.secret = secret;
+  }
+KeepSecret.prototype.squeal = function() {
+  return this.secret;
 }
 // assertions
 var mySecret = "My class rocks!"
